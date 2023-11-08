@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Calculadora de IMC</h1>
+  <p>Ingresa tu peso y altura para calcular tu IMC.</p>
+
+  <form (ngSubmit)="calcularIMC()">
+    <div class="form-group">
+      <label for="weight">Peso (kg):</label>
+      <input type="number" class="form-control" id="weightt" name="weightt" [(ngModel)]="weightt" required>
+    </div>
+    <div class="form-group">
+      <label for="height">Altura (m):</label>
+      <input type="number" class="form-control" id="heightt" name="heightt" [(ngModel)]="heightt" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular IMC</button>
+  </form>
+
+  <div *ngIf="imcValue !== null">
+    <h2>Resultado del IMC</h2>
+    <p>Tu IMC es: {{ imcValue.toFixed(2) }}</p>
+    <p>Interpretación: {{ interpretacionIMC }}</p>
+  </div>
+</div>

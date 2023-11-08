@@ -1,0 +1,31 @@
+/* Cambia el color de fondo de la barra de navegación */
+.navbar {
+  background-color: #007BFF; /* Puedes cambiar el color de fondo a tu elección */
+}
+
+  /* Cambia el color del texto del enlace en la barra de navegación */
+  .navbar a.nav-link {
+    color: black; /* Color del texto */
+  }
+
+  /* Estilo del botón de Iniciar Sesión */
+  .navbar a.btn-primary {
+    background-color: #28a745; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    margin-right: 10px; /* Espacio entre botones */
+    margin-left: 100vh;
+  }
+
+  /* Estilo del botón de Iniciar */
+  .navbar button.btn-secondary {
+    background-color: #6c757d; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Elimina el borde del botón */
+    cursor: pointer;
+    margin-right: 10px; /* Espacio entre botones */
+  }
+
+    /* Cambia el color del botón al pasar el mouse sobre él */
+    .navbar button.btn-secondary:hover {
+      background-color: #343a40; /* Color de fondo al pasar el mouse */
+    }

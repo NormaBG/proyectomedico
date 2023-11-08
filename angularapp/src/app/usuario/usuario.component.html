@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Formulario de Información de Usuario</h1>
+
+  <form (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" required>
+    </div>
+
+    <div class="form-group">
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" [(ngModel)]="usuario.edad" required>
+    </div>
+
+    <div class="form-group">
+      <label for="genero">Género:</label>
+      <select id="genero" name="genero" [(ngModel)]="usuario.genero">
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="diabetesGestacional">¿Ha tenido diabetes gestacional?</label>
+      <input type="radio" id="diabetesGestacional" name="diabetesGestacional" value="si" [(ngModel)]="usuario.diabetesGestacional"> Sí
+      <input type="radio" id="diabetesGestacional" name="diabetesGestacional" value="no" [(ngModel)]="usuario.diabetesGestacional"> No
+    </div>
+
+    <div class="form-group">
+      <label for="familiaresDiabetes">¿Tiene familiares con diabetes?</label>
+      <input type="radio" id="familiaresDiabetes" name="familiaresDiabetes" value="si" [(ngModel)]="usuario.familiaresDiabetes"> Sí
+      <input type="radio" id="familiaresDiabetes" name="familiaresDiabetes" value="no" [(ngModel)]="usuario.familiaresDiabetes"> No
+    </div>
+
+    <div class="form-group">
+      <label for="presionAlta">¿Tiene presión alta?</label>
+      <input type="radio" id="presionAlta" name="presionAlta" value="si" [(ngModel)]="usuario.presionAlta"> Sí
+      <input type="radio" id="presionAlta" name="presionAlta" value="no" [(ngModel)]="usuario.presionAlta"> No
+    </div>
+
+    <div class="form-group">
+      <label for="activoFisicamente">¿Es físicamente activo?</label>
+      <input type="radio" id="activoFisicamente" name="activoFisicamente" value="si" [(ngModel)]="usuario.activoFisicamente"> Sí
+      <input type="radio" id="activoFisicamente" name="activoFisicamente" value="no" [(ngModel)]="usuario.activoFisicamente"> No
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
