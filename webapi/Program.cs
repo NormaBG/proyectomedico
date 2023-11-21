@@ -1,3 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using webapi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +13,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddDbContext<SistemamedicoContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaBD_sistemamedico"));
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,6 +27,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin();
+    options.AllowAnyMethod();
+    options.AllowAnyHeader();
+});
 
 app.UseHttpsRedirection();
 

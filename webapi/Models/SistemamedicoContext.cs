@@ -15,6 +15,8 @@ public partial class SistemamedicoContext : DbContext
     {
     }
 
+    public virtual DbSet<DatosFindrisc> DatosFindriscs { get; set; }
+
     public virtual DbSet<Ibm> Ibms { get; set; }
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
@@ -25,6 +27,39 @@ public partial class SistemamedicoContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<DatosFindrisc>(entity =>
+        {
+            entity.ToTable("datos_findrisc");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Apellidos)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("apellidos");
+            entity.Property(e => e.Genero)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("genero");
+            entity.Property(e => e.Interpretacion)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("interpretacion");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("nombre");
+            entity.Property(e => e.Pregunta1).HasColumnName("pregunta1");
+            entity.Property(e => e.Pregunta2).HasColumnName("pregunta2");
+            entity.Property(e => e.Pregunta3).HasColumnName("pregunta3");
+            entity.Property(e => e.Pregunta4).HasColumnName("pregunta4");
+            entity.Property(e => e.Pregunta5).HasColumnName("pregunta5");
+            entity.Property(e => e.Pregunta6).HasColumnName("pregunta6");
+            entity.Property(e => e.Pregunta7).HasColumnName("pregunta7");
+            entity.Property(e => e.Pregunta8).HasColumnName("pregunta8");
+            entity.Property(e => e.PuntajeTotal).HasColumnName("puntaje_total");
+            entity.Property(e => e.Riesgo).HasColumnName("riesgo");
+        });
+
         modelBuilder.Entity<Ibm>(entity =>
         {
             entity.ToTable("ibm");
