@@ -1,49 +1,116 @@
 <div class="container">
-  <h1>Formulario de Información de Usuario</h1>
+  <h1>Formulario FindRisc</h1>
 
-  <form (ngSubmit)="submitForm()">
-    <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" required>
+  <form id="encuestaFindRisc">
+
+    <div class="mb-3">
+      <label for="formGroup" class="form-label">Nombre(s):</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese su Nombre.">
     </div>
 
-    <div class="form-group">
-      <label for="edad">Edad:</label>
-      <input type="number" id="edad" name="edad" [(ngModel)]="usuario.edad" required>
+    <div class="mb-3">
+      <label for="formGroup" class="form-label">Apellido(s): </label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese su Apellido.">
     </div>
 
-    <div class="form-group">
-      <label for="genero">Género:</label>
-      <select id="genero" name="genero" [(ngModel)]="usuario.genero">
-        <option value="masculino">Masculino</option>
-        <option value="femenino">Femenino</option>
+    <div class="form-label">
+      <label for="formGroup" class="form-label"> Genero: </label>
+      <select class="form-control" id="genero" name="genero" [(ngModel)]="opcionSeleccionada">
+        <option>Femenino</option>
+        <option>Masculino</option>
       </select>
     </div>
 
-    <div class="form-group">
-      <label for="diabetesGestacional">¿Ha tenido diabetes gestacional?</label>
-      <input type="radio" id="diabetesGestacional" name="diabetesGestacional" value="si" [(ngModel)]="usuario.diabetesGestacional"> Sí
-      <input type="radio" id="diabetesGestacional" name="diabetesGestacional" value="no" [(ngModel)]="usuario.diabetesGestacional"> No
+    <div class="form-label">
+      <label for="formGroup" class="form-label"> Edad: </label>
+      <select name="pregunta1" class="form-label" [(ngModel)]="pregunta1">
+        <option value="0">Menos de 45 años</option>
+        <option value="2">Entre 45-54 años</option>
+        <option value="3">Entre 55-64 años</option>
+        <option value="4">Mas de 64 años</option>
+      </select>
     </div>
 
-    <div class="form-group">
-      <label for="familiaresDiabetes">¿Tiene familiares con diabetes?</label>
-      <input type="radio" id="familiaresDiabetes" name="familiaresDiabetes" value="si" [(ngModel)]="usuario.familiaresDiabetes"> Sí
-      <input type="radio" id="familiaresDiabetes" name="familiaresDiabetes" value="no" [(ngModel)]="usuario.familiaresDiabetes"> No
+    <div class="form-label">
+      <label for="formGroup" class="form-label">IMC: </label>
+      <select name="pregunta2" class="form-label" [(ngModel)]="pregunta2">
+        <option value="0">Menos de 25kg/m2</option>
+        <option value="1">Entre 25-30kg/m2</option>
+        <option value="3">Mas de 30kg/m2</option>
+      </select>
+      <label (click)="calculaImcPag()">Si no lo conoce lo puede calcular aqui: Calcular IMC</label>
     </div>
 
-    <div class="form-group">
-      <label for="presionAlta">¿Tiene presión alta?</label>
-      <input type="radio" id="presionAlta" name="presionAlta" value="si" [(ngModel)]="usuario.presionAlta"> Sí
-      <input type="radio" id="presionAlta" name="presionAlta" value="no" [(ngModel)]="usuario.presionAlta"> No
+    <div *ngIf="opcionSeleccionada === 'Femenino'">
+      <label for="formGroup" class="form-label">Perimetro abdominal imedido a nivel del ombligo </label>
+      <select name="pregunta3" class="form-label" [(ngModel)]="pregunta3">
+        <option value="0">Menos de 80 cm</option>
+        <option value="3">Entre 80-88 cm</option>
+        <option value="4">Más de 88 cm</option>
+      </select>
     </div>
 
-    <div class="form-group">
-      <label for="activoFisicamente">¿Es físicamente activo?</label>
-      <input type="radio" id="activoFisicamente" name="activoFisicamente" value="si" [(ngModel)]="usuario.activoFisicamente"> Sí
-      <input type="radio" id="activoFisicamente" name="activoFisicamente" value="no" [(ngModel)]="usuario.activoFisicamente"> No
+    <div *ngIf="opcionSeleccionada === 'Masculino'">
+      <label for="formGroup" class="form-label">Perimetro abdominal imedido a nivel del ombligo </label>
+      <select name="pregunta3" class="form-label" [(ngModel)]="pregunta3">
+        <option value="0">Menos de 94 cm</option>
+        <option value="3">Entre 94-102 cm</option>
+        <option value="4">Más de 102 cm</option>
+      </select>
     </div>
 
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <div class="form-label">
+      <label for="formGroup" class="form-label"> ¿Realiza actividad al menos 30 minutos diarios de actividad fisica? </label>
+      <select name="pregunta4" class="form-label" [(ngModel)]="pregunta4">
+        <option value="0">Si</option>
+        <option value="2">No</option>
+      </select>
+    </div>
+
+    <div class="form-label">
+      <label for="formGroup" class="form-label"> ¿Con que frecuencia come frutas, verduras y hortalizas?</label>
+      <select name="pregunta5" class="form-label" [(ngModel)]="pregunta5">
+        <option value="0">A diario</option>
+        <option value="1">No a diario</option>
+      </select>
+    </div>
+
+    <div class="form-label">
+      <label for="formGroup" class="form-label"> ¿Le han recetado alguna vez medicamentos contra la HTA?</label>
+      <select name="pregunta6" class="form-label" [(ngModel)]="pregunta6">
+        <option value="2">Si</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+
+    <div class="form-label">
+      <label for="formGroup" class="form-label"> ¿Le han detectado alguna vez niveles altos de glucosa en sangre </label>
+      <select name="pregunta7" class="form-label" [(ngModel)]="pregunta7">
+        <option value="5">Si</option>
+        <option value="0">No</option>
+      </select>
+    </div>
+
+    <div class="form-label">
+      <label for="formGroup" class="form-label"> ¿Ha habido algun diagnostico de DM en su familia?</label>
+      <select name="pregunta8" class="form-label" [(ngModel)]="pregunta8">
+        <option value="0">No</option>
+        <option value="3">Si: Abuelos, tios o primos hermanos (pero no padres,hermanos o hijos)</option>
+        <option value="5">Si: Padres, hermanos o hijos</option>
+      </select>
+    </div>
   </form>
+
+  <button type="button" (click)="calcularPuntaje()" class="btn btn-primary">Calcular Puntaje</button>
+
+  <div *ngIf="mostrarPuntaje" class="mb-3">
+    <label for="formGroup" class="form-label">Puntaje Total:</label>
+    <p>{{ puntajeTotal }}</p>
+    <label>Riesgo de desarrollar diabetes en los proximos 10 años: </label>
+    <p>{{ riesgo }}%</p>
+    <p>{{interpretacion}}</p>
+  </div>
+
+
+
 </div>
