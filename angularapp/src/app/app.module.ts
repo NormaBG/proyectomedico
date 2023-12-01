@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -10,6 +10,10 @@ import { ImcComponent } from './imc/imc.component';
 import { FormsModule } from '@angular/forms';
 import { InfodiabetesComponent } from './infodiabetes/infodiabetes.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { CapturadatosComponent } from './capturadatos/capturadatos.component';
+import { MostrarDatosComponent } from './mostrar-datos/mostrar-datos.component';
+import { ContadorComponent } from './contador/contador.component';
+
 
 const ROUTES: Routes = [
   //rutas xd
@@ -27,7 +31,13 @@ const ROUTES: Routes = [
   },
   {
     path: 'usuario', component: UsuarioComponent
-  }
+  },
+  {
+    path: 'capturadatos', component: CapturadatosComponent
+  },
+  {
+    path: 'mostrardatos', component: MostrarDatosComponent
+  },
 ];
 
 @NgModule({
@@ -37,7 +47,10 @@ const ROUTES: Routes = [
     NavbarComponent,
     ImcComponent,
     InfodiabetesComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    CapturadatosComponent,
+    MostrarDatosComponent,
+    ContadorComponent
   ],
   imports: [
     RouterModule.forRoot(ROUTES),

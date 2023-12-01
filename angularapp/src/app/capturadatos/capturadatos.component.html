@@ -1,0 +1,26 @@
+<!--<div class="mb-3">
+  <label for="formGroup" class="form-label">Grupo:</label>
+  <input type="text" class="form-control" id="grupo" name="grupo" [(ngModel)]="datos.grupo">
+</div>
+-->
+<div class="mb-3">
+  <label for="formGroup" class="form-label"> Grupo: </label>
+  <select name="datos" class="form-label" [(ngModel)]="datos.grupo">
+    <option>101</option>
+    <option>102</option>
+    <option>103</option>
+    <option>104</option>
+  </select>
+</div>
+
+<div class="mb-3">
+  <label for="formGroup" class="form-label">No. Cuenta</label>
+  <input type="number" class="form-control" id="cuenta" name="cuenta" [(ngModel)]="datos.cuenta">
+</div>
+
+<div class="mb-3">
+  <label for="formGroup" class="form-label">Nombre:</label>
+  <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="datos.nombre">
+</div>
+
+<button type="button" (click)="enviar()" class="btn btn-primary">Enviar datos</button>
