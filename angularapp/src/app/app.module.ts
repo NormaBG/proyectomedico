@@ -7,19 +7,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CommonModule, IMAGE_CONFIG } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ImcComponent } from './imc/imc.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfodiabetesComponent } from './infodiabetes/infodiabetes.component';
 import { UsuarioComponent } from './usuario/usuario.component';
-import { CapturadatosComponent } from './capturadatos/capturadatos.component';
-import { MostrarDatosComponent } from './mostrar-datos/mostrar-datos.component';
-import { ContadorComponent } from './contador/contador.component';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { GraficosComponent } from 'src/app/imc/graficos/graficos.component';
 
 
 const ROUTES: Routes = [
   //rutas xd
-  {
-    path: '', component: AppComponent
-  },
   {
     path: 'login', component: LoginComponent
   },
@@ -33,11 +29,8 @@ const ROUTES: Routes = [
     path: 'usuario', component: UsuarioComponent
   },
   {
-    path: 'capturadatos', component: CapturadatosComponent
-  },
-  {
-    path: 'mostrardatos', component: MostrarDatosComponent
-  },
+    path: 'graficos', component: GraficosComponent
+  }
 ];
 
 @NgModule({
@@ -48,13 +41,11 @@ const ROUTES: Routes = [
     ImcComponent,
     InfodiabetesComponent,
     UsuarioComponent,
-    CapturadatosComponent,
-    MostrarDatosComponent,
-    ContadorComponent
+    GraficosComponent
   ],
   imports: [
     RouterModule.forRoot(ROUTES),
-    BrowserModule, HttpClientModule, RouterModule, CommonModule, FormsModule
+    BrowserModule, HttpClientModule, RouterModule, CommonModule, FormsModule, NgApexchartsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

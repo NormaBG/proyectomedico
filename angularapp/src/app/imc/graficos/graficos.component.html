@@ -1,0 +1,60 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="chart">
+  <apx-chart [series]="chartOptions.series"
+             [chart]="chartOptions.chart"
+             [xaxis]="chartOptions.xaxis"
+             [stroke]="chartOptions.stroke"
+             [dataLabels]="chartOptions.dataLabels"
+             [yaxis]="chartOptions.yaxis"
+             [labels]="chartOptions.labels"
+             [legend]="chartOptions.legend"
+             [title]="chartOptions.title"
+             [subtitle]="chartOptions.subtitle"></apx-chart>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre del paciente</th>
+        <th>Apellidos</th>
+        <th>Genero</th>
+        <th>Pregunta 1</th>
+        <th>Pregunta 2</th>
+        <th>Pregunta 3</th>
+        <th>Pregunta 4</th>
+        <th>Pregunta 5</th>
+        <th>Pregunta 6</th>
+        <th>Pregunta 7</th>
+        <th>Pregunta 8</th>
+        <th>Puntaje Total</th>
+        <th>Riesgo</th>
+        <th>Interpretacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dato of datos">
+        <td>{{ dato.id }}</td>
+        <td>{{ dato.nombre }}</td>
+        <td>{{ dato.apellidos}}</td>
+        <td>{{ dato.genero}}</td>
+        <td>{{ dato.pregunta1}}</td>
+        <td>{{ dato.pregunta2}}</td>
+        <td>{{ dato.pregunta3}}</td>
+        <td>{{ dato.pregunta4}}</td>
+        <td>{{ dato.pregunta5}}</td>
+        <td>{{ dato.pregunta6}}</td>
+        <td>{{ dato.pregunta7}}</td>
+        <td>{{ dato.pregunta8}}</td>
+        <td>{{ dato.puntajeTotal}}</td>
+        <td>{{ dato.riesgo}}</td>
+        <td>{{ dato.interpretacion}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <button (click)="exportarExcel()">Exportar a Excel</button>
+  </div>
+
+</div>

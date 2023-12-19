@@ -18,6 +18,11 @@ export class UsuarioComponent {
   mostrarPuntaje: boolean = false;
   nombre: string = "";
   apellido: string = "";
+  nivel1string: string = "Muy bajo";
+  nivel2string: string = "Ligeramente Elevado";
+  nivel3string: string = "Moderado";
+  nivel4string: string = "Alto";
+  nivel5string: string = "Muy alto";
 
   pregunta1: number | any;
   pregunta2: number | any;
@@ -71,19 +76,19 @@ export class UsuarioComponent {
 
     if (this.puntajeTotal < 7) {
       this.riesgo = 1;
-      this.interpretacion = "Nivel de Riesgo muy bajo";
+      this.interpretacion = this.nivel1string;
     } else if (this.puntajeTotal >= 7 && this.puntajeTotal <= 11) {
       this.riesgo = 4;
-      this.interpretacion = "Nivel de Riesgo ligeramente elevado"
+      this.interpretacion = this.nivel2string;
     } else if (this.puntajeTotal >= 12 && this.puntajeTotal <= 14) {
       this.riesgo = 17;
-      this.interpretacion = "Nivel de riesgo moderado"
+      this.interpretacion = this.nivel3string;
     } else if (this.puntajeTotal >= 15 && this.puntajeTotal <= 20) {
       this.riesgo = 33;
-      this.interpretacion = "Nivel de riesgo alto";
+      this.interpretacion = this.nivel4string;
     } else if (this.puntajeTotal > 20) {
       this.riesgo = 50;
-      this.interpretacion = "Nivel de riesgo muy alto";
+      this.interpretacion = this.nivel5string;
     }
 
     this.preguntasbd = {

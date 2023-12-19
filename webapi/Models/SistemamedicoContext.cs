@@ -21,6 +21,8 @@ public partial class SistemamedicoContext : DbContext
 
     public virtual DbSet<Paciente> Pacientes { get; set; }
 
+    public virtual DbSet<Usuario> Usuarios { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=.\\NMSQL;Database=sistemamedico;Integrated Security=True;TrustServerCertificate=True");
@@ -107,6 +109,23 @@ public partial class SistemamedicoContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("presion alta");
+        });
+
+        modelBuilder.Entity<Usuario>(entity =>
+        {
+            entity.HasKey(e => e.IdUsuario);
+
+            entity.ToTable("usuarios");
+
+            entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
+            entity.Property(e => e.Contrasena)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("contrasena");
+            entity.Property(e => e.Usuario1)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("usuario");
         });
 
         OnModelCreatingPartial(modelBuilder);
